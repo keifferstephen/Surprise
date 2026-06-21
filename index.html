@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Loading...</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#0f172a;
+    color:white;
+    font-family:Arial,sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    text-align:center;
+}
+
+.container{
+    max-width:700px;
+    padding:20px;
+}
+
+#prank{
+    display:none;
+}
+
+img{
+    max-width:90%;
+    border-radius:15px;
+}
+
+.count{
+    font-size:60px;
+    font-weight:bold;
+    margin:20px 0;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+```
+<div id="loading">
+
+    <h1>🔍 Security Scan</h1>
+
+    <p>
+    Please wait while we verify your device...
+    </p>
+
+    <div id="counter" class="count">
+        5
+    </div>
+
+</div>
+
+<div id="prank">
+
+    <h1>😂 Gotcha!</h1>
+
+    <img src="monkey.png" alt="monkey">
+
+</div>
+```
+
+</div>
+
+<script>
+
+let count = 5;
+
+let timer = setInterval(() => {
+
+    count--;
+
+    document.getElementById("counter").innerText = count;
+
+    if(count <= 0){
+
+        clearInterval(timer);
+
+        document.getElementById("loading").style.display = "none";
+
+        document.getElementById("prank").style.display = "block";
+
+        document.title = "😂 Surprise!";
+
+    }
+
+},1000);
+
+</script>
+
+</body>
+</html>
